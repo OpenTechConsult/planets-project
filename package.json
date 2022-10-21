@@ -1,0 +1,23 @@
+{
+  "name": "planets-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenTechConsult/planets-project.git"
+  },
+  "keywords": [],
+  "author": "Elom Atsou Agboka <opentech.consult@gmail.com> (https://github.com/OpenTechConsult)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OpenTechConsult/planets-project/issues"
+  },
+  "homepage": "https://github.com/OpenTechConsult/planets-project#readme",
+  "dependencies": {
+    "csv-parse": "^5.3.1"
+  }
+}
