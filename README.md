@@ -67,3 +67,23 @@ That might be it, but let's be responsible and react to errors that might occur 
         console.log('Done')
     })
 ```
+
+## Introduction to HTTP Response and Requests
+
+We've seen that when you browse to a site, we used this system called DNS to figure out where that site lives, which IP address we should use when communicating with it.
+
+And we can then make **requests** to our HTTP web server to get data back from it. The thing that define how our web server respond to these requests is our **API**. The API tells us what kind of functions the server should support and how those functions should be used. Functions like for example **_getting a list of friends_**, or **_getting their messages_**, or **_getting their photos_**.
+
+We can implement our API on the server in Node.js, in Python, or any other programming language. What matters is that the language that we used when reacting to these requests and responding to them is HTTP, which is the **common way** that the browser and the server can use to understand what both sides are saying. So the browser is speaking HTTP to the server and the server can respond, because the server also speaks HTTP.
+
+### So what does this language look like, what are the words the HTTP uses.
+
+For that we can browse to the Mozilla Developer Network Documentation (MDN) which has this excellent reference for the **HTTP Requests Methods** which are also sometimes called **_HTTP Verbs_**. They represent all of the possible actions that you might want to perform on the server side as browser.
+
+- So a browser might want to **GET** some data or a file stored on that server.
+- the browser might want to **POST** some data, which is another of saying _submit_ or _send_ something to the server (a message or maybe a photo).
+- or maybe the browser want to **DELETE** some data that the server has about us as user
+
+There are few more methods that HTTP support that are less common to use but we'll go over them when it makes sens to. That's it. We can see on the MDN page, all of the HTTP methods, all the words in the HTTP language that we need to learn to build the app of our dream.
+
+HTTP has become the language of the web because it's so simple. In the next section, let's take a look at the kind of messages that we can send and receive in HTTP using the methods that we've seen here.
