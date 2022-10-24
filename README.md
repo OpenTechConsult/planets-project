@@ -135,3 +135,33 @@ Every one of these request have 4 main parts:
 That's pretty much it. Using these few  parts, we can send over any request we can imagine over to the server so that it can respond to our request.
 
 We'll find all about the response in the next section.
+
+## HTTP Response
+
+We've seen how the browser sends messages or requests to the server by passing:
+
+- the **METHOD**
+- the **PATH** to the resource or collection
+- sometimes the **BODY** with some data to send to the server
+- and some optional list of **HEADERS** with metadata about that request.
+
+### What does the server respond with?
+
+**Responses** in HTTP are even simpler than requests.
+
+With Responses with have three (3) main parts:
+
+  - Like in request, we optional list of **HEADERS**
+    - (e.g. "**Content-Type: application/json**") which is a HEADER that we might see both in request and response. It tells us the type of data that is being sent in the body of request or in the body of the response.
+  - The second main part of the response is the **BODY** that contains the data that we're fetching from the server. If we set the Content-Type as _application/json_ on the server side, that means that the server is sending a JSON object (e.g. a message from the messages collection like so `{text: "Hi!", photo: "wave.jpg"}`)
+- The response also include a **STATUS CODE** which tells us if the request was successful. If not it sends us an **ERROR_CODE** telling us what went wrong. The status code that we want to is **200** which indicates that the response is a successful one. 
+  - There are few more possibilities. Every possible HTTP status code can be put into one of the five group
+    - Informational responses (100-199)
+    - Successful responses (200-299)
+    - Redirect errors (300-399)
+    - Client errors (400-499)
+    - Server errors (500-599)
+
+For a reference documentation on status code see [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+Before we move on, we can solidify what we learned and look at a request and response in action by heading to the developer console in Google Chrome. From there, go to the Network tab and see the flow of HTTP request and responses activities while browsing a web page.
