@@ -102,3 +102,4 @@ dist
 
 # TernJS port file
 .tern-port
+planets-project.code-workspace
