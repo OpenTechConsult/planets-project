@@ -87,3 +87,51 @@ For that we can browse to the Mozilla Developer Network Documentation (MDN) whic
 There are few more methods that HTTP support that are less common to use but we'll go over them when it makes sens to. That's it. We can see on the MDN page, all of the HTTP methods, all the words in the HTTP language that we need to learn to build the app of our dream.
 
 HTTP has become the language of the web because it's so simple. In the next section, let's take a look at the kind of messages that we can send and receive in HTTP using the methods that we've seen here.
+
+
+## HTTP Requests
+
+What kind of messages do we send back and forth in HTTP? What an HTTP conversation look like? Remember that an API stands for Application Programming Interface. It specifies how two applications talk to each other, for example a browser and a web server. And On the web, it's generally the browser making the requests and the server responding to those requests. If we think of an API, almost like a set of phrases in a language that we can put together to communicate an idea or to get some work done, then it's generally the browser that starts the conversation and asks questions of the server, waiting for it response before potentially making another request. It's almost like the browser interviewing the server.
+
+### So what kind of things can we ask of our web server?
+
+With HTTP, our API is made up of operations using these methods like: GET, POST which we saw that are used on different collections of Data like for example a list of friends (GET /friends) or messages (GET /messages) or photos (GET /photos). We can combine **the name of the method** with the **collection name** to get the data that the server has on who our friends are. Or we can add an Id to the name of our collection to specify that we want to get data about a specific friend (e.g: get data on the friend of id 5, GET /friends/5)
+
+We can generally categorize our requests into requests that are been made on collections of data and requests that are been made on specific item in the same collections. This apply to all of our HTTP verbs. So we can also:
+
+```bash
+    POST /messages : if we wanted to save a message and send it to our friends
+```
+
+But in general it does not make sens to try to POST to a specific message. Because we  generally only add to collections of data and not to individual items. So the following API phrase is not correct:
+
+```bash
+    POST /messages/15
+```
+
+But it is possible for us to want to update a specific message to for example change some text or add a photo. And so for that we'll use a **PUT** which allows us to replace the message that we specify with message that we pass in through that request (also called the body of the request)
+
+```bash
+    PUT /messages/15
+```
+
+We might decide that we are no longer happy with our messages and want to **DELETE** it or maybe we want to remove a specific friend.
+
+```bash
+    DELETE /messages/15
+
+    DELETE /friend/5
+```
+
+These are possible HTTP requests.
+
+Every one of these request have 4 main parts:
+
+- First is the **METHOD** (GET, POST, PUT, DELETE, PATCH): defines the operations that the browser want to make to the server.
+- Each verb is matched up with a **PATH** to a collection or a specific item of a collection. This **PATH** is also sometimes called the **RESOURCE** that we're accessing on the backend.
+- We send data to the server by adding a **BODY** to our request which contains the data that we are sending from the browser to the server. This could be in plain text or in a variety of formats. The most common format being JSON. (e.g `{text: "hello", photo: "smile.jpg"}`). Usually we'll have a body on **POST** requests and on **PUT** requests where we are updating data on the server. But we we will not have **BODY** on **GET** or **DELETE** requests, because on those requests the server knows everything it needs to from the METHOD and PATH.
+- And last (but not the least), the fourth part of every request which is the **HEADERS**. These are _optional_ properties that we can specify on requests to send additional metadata to the servers. That is _data about the data_ that we're are sending, _data about the request_ (E.g. _**size**_ about the data we're sending', any authentication information we need to send so that the server knows that we're allow to perform that operation with our user). These are _optional_ depending on our use case. But there is one HEADER that every single request needs to have. It is the **HOST** header which specify which server your request is being sent to, including sometimes the **PORT** number for that site. The **HOST** needs to be specify to verify that we're sending our request to the right server.
+
+That's pretty much it. Using these few  parts, we can send over any request we can imagine over to the server so that it can respond to our request.
+
+We'll find all about the response in the next section.
